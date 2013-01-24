@@ -7,9 +7,11 @@
 // ==/ServerScript==
 // --------------------------------------------------------------------
 
+// Captcha-based whitelist by scriptjunkie
+
 //reCaptcha and database configuration file location
 private static String configFileLocation = "/usr/local/GreasySpoon/CaptchaWhitelist.conf";
-//Contains all of the following entries
+//Contains the following entries
 private static String reCaptchaPubkey = null, reCaptchaPrivkey = null, //recaptcha params
 	//see http://www.google.com/recaptcha/whyrecaptcha to get your keys
 	//Below are JDBC database parameters

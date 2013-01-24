@@ -1,7 +1,23 @@
-GreasySpoon
-===========
+GreasySpoon CaptchaWhitelist
+============================
 
-Mirror of the defunct GreasySpoon project.
+Allows access to non-whitelisted sites by solving a CAPTCHA, implemented as 
+a GreasySpoon Java ICAP script. The script is in the repository at 
+jar/serverscripts/CaptchaWhitelistScript.req.server.java
+
+To ensure this is effective, clients must not be able to connect to any IP 
+or make DNS requests bypassing the proxy, and the proxy should be set up to 
+"bump" SSL (for example, see http://wiki.squid-cache.org/Features/SslBump)
+or HTTPS connections will not be restricted to the whitelist.
+
+CaptchaWhitelist was written using Apache Derby (required jar included) but 
+should be able to use any database.
+
+Configuration is in the CaptchaWhitelist.conf, an example of which is 
+included. This repository should be cloned to /usr/local/GreasySpoon/ but 
+can be anywhere if the configFileLocation in the script is changed.
+
+------------------------------------------------
 
 GreasySpoon is an Internet Content Adaptation Protocol (ICAP) server.
 GreasySpoon is written Java and supports ICAP scripts written in JavaScript,
