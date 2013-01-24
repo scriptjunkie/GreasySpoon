@@ -1,0 +1,8 @@
+reCaptchaPubkey=INSERT_YOUR_RECAPTCHA_PUBKEY_HERE_PLZ
+reCaptchaPrivkey=INSERT_YOUR_RECAPTCHA_PRIVKEY_HERE_PLZ
+connectString=jdbc:derby:domainDB;create=true
+dbUser=null
+dbPass=null
+dbDriver=org.apache.derby.jdbc.EmbeddedDriver
+dbDriverJarPath=/usr/local/GreasySpoon/lib/derby.jar
+ACCESS_HOURS=24
