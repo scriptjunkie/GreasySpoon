@@ -1,6 +1,8 @@
 // Captcha-based whitelist by scriptjunkie
 // This file imports a list of 
 import java.io.*;
+import java.util.regex.*;
+
 public class DatabaseBuilder{
 //reCaptcha and database configuration file location
 private static String configFileLocation = "/usr/local/GreasySpoon/CaptchaWhitelist.conf";
@@ -27,10 +29,14 @@ public static void main(String[] args){
 		loadProperties();
 	try{ //Connect to or create the database
 		conn = getDbConnection();
+		//Open up your input stream
 		BufferedReader stdinReader = new BufferedReader(new FileReader(args[0]));
 		String domain;
+		//Prepare verifier
+		Pattern domainPattern = Pattern.compile("[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}");
 		while((domain = stdinReader.readLine()) != null)
-			doDomainAction("Always", domain);
+			if(domainPattern.matcher(domain).matches()) // only accept valid domains
+				doDomainAction("Always", domain);
 	}catch(Exception ex){
 		ex.printStackTrace();
 	}
